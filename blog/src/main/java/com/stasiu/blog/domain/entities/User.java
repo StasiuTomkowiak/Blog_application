@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -20,6 +21,7 @@ import lombok.*;
 @Setter
 @Builder
 public class User {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -43,5 +45,17 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(id, user.id) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(name, user.name) && Objects.equals(createdAt, user.createdAt);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id, mail, password, name, createdAt);
+    }
+
+    @PrePersist
+    protected void onCreate()
+    {
+        createdAt = LocalDateTime.now();
     }
 }
