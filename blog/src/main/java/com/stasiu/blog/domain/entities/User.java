@@ -21,8 +21,7 @@ import lombok.*;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 @Builder
 public class User {
 
@@ -45,20 +44,20 @@ public class User {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    @Override
-    public boolean equals(Object o)
-    {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(name, user.name) && Objects.equals(createdAt, user.createdAt);
-    }
+    // @Override
+    // public boolean equals(Object o)
+    // {
+    //     if (this == o) return true;
+    //     if (o == null || getClass() != o.getClass()) return false;
+    //     User user = (User) o;
+    //     return Objects.equals(id, user.id) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(name, user.name) && Objects.equals(createdAt, user.createdAt);
+    // }
 
-    @Override
-    public int hashCode()
-    {
-        return Objects.hash(id, mail, password, name, createdAt);
-    }
+    // @Override
+    // public int hashCode()
+    // {
+    //     return Objects.hash(id, mail, password, name, createdAt);
+    // }
 
     @PrePersist
     protected void onCreate()
