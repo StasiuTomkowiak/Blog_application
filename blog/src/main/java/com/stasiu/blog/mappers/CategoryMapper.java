@@ -9,6 +9,7 @@ import org.mapstruct.ReportingPolicy;
 
 import com.stasiu.blog.domain.PostStatus;
 import com.stasiu.blog.domain.dtos.CategoryDto;
+import com.stasiu.blog.domain.dtos.CreateCategoryRequest;
 import com.stasiu.blog.domain.entities.Category;
 import com.stasiu.blog.domain.entities.Post;
 
@@ -17,6 +18,8 @@ public interface CategoryMapper{
 
     @Mapping(target = "postCount", source =  "posts", qualifiedByName = "calculatePostCount")
     CategoryDto toDto(Category category);
+
+    Category toEntity(CreateCategoryRequest createCategoryRequest);
 
     @Named("calculatePostCount")
     default long calculatePostCount(List<Post> posts) {
