@@ -1,6 +1,7 @@
 package com.stasiu.blog.domain.entities;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -17,7 +18,8 @@ import lombok.*;
 @Table(name = "tags")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 public class Tag {
     
@@ -31,30 +33,30 @@ public class Tag {
     @ManyToMany(mappedBy = "tags")
     private Set<Post> posts = new HashSet<>();
 
-    // @Override
-    // public int hashCode() {
-    //     return Objects.hash(id, name);
-    // }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
 
-    // @Override
-    // public boolean equals(Object obj) {
-    //     if (this == obj)
-    //         return true;
-    //     if (obj == null)
-    //         return false;
-    //     if (getClass() != obj.getClass())
-    //         return false;
-    //     Tag other = (Tag) obj;
-    //     if (id == null) {
-    //         if (other.id != null)
-    //             return false;
-    //     } else if (!id.equals(other.id))
-    //         return false;
-    //     if (name == null) {
-    //         if (other.name != null)
-    //             return false;
-    //     } else if (!name.equals(other.name))
-    //         return false;
-    //     return true;
-    // }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Tag other = (Tag) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        return true;
+    }
 }
