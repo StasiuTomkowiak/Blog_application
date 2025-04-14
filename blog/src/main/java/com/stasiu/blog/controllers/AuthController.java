@@ -23,7 +23,7 @@ public class AuthController {
     @PostMapping
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest){
         UserDetails userDetails = authenticationService.authenticate(
-            loginRequest.getEmail(),
+            loginRequest.getMail(),
             loginRequest.getPassword()
         );
 

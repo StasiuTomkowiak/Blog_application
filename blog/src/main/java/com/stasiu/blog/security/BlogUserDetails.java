@@ -2,6 +2,7 @@ package com.stasiu.blog.security;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,7 +31,7 @@ public class BlogUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return user.getMail();
     }
 
     @Override
@@ -52,5 +53,7 @@ public class BlogUserDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
+    public UUID getId(){
+        return user.getId();
+    }
 }

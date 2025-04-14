@@ -30,8 +30,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false,unique = true)
-    private String email;
+    @Column(name = "email",nullable = false,unique = true)
+    private String mail;
 
     @Column(nullable = false)
     private String password;
@@ -51,13 +51,13 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(name, user.name) && Objects.equals(createdAt, user.createdAt);
+        return Objects.equals(id, user.id) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(name, user.name) && Objects.equals(createdAt, user.createdAt);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(id, email, password, name, createdAt);
+        return Objects.hash(id, mail, password, name, createdAt);
     }
 
     @PrePersist
