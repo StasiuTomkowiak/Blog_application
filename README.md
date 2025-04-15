@@ -1,59 +1,102 @@
-# Blog_application
+# Blog Application – Backend (Spring Boot)
 
-## Description
-A simple blog application that allows users to create, edit, and view blog posts. This application is designed to demonstrate basic CRUD (Create, Read, Update, Delete) operations and user interaction.
+This is a simple backend for a blog application built with Java and Spring Boot. It allows creating, editing, deleting, and fetching blog posts. Data is stored in a PostgreSQL database.
 
-## Features
-- Create new blog posts
-- Edit existing blog posts
-- Delete blog posts
-- View a list of all blog posts
-- User-friendly interface
+## 🛠 Technologies
 
-## Technologies Used
-- **Frontend**: React.js for building the user interface
-- **Backend**: Node.js with Express.js for handling server-side logic
-- **Database**: MongoDB for storing blog posts
-- **Styling**: CSS or a CSS framework like Bootstrap for styling
-- **Version Control**: Git for source code management
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- PostgreSQL
+- Maven
+- Docker & Docker Compose
 
-## Project Structure
+## 📁 Project Structure
+
 ```
-Blog_application/
+blog/
 ├── src/
-│   ├── components/      # React components
-│   ├── pages/           # Page-level components
-│   ├── services/        # API calls and business logic
-│   ├── styles/          # CSS or SCSS files
-│   └── index.js         # Application entry point
-├── public/              # Static assets
-├── package.json         # Project metadata and dependencies
-└── README.md            # Project documentation
+│   ├── main/
+│   │   ├── java/com/example/blog/     # Core application logic
+│   │   └── resources/                 # Configuration files
+│   └── test/                          # Unit tests
+├── pom.xml                            # Maven configuration
+├── docker-compose.yml                 # PostgreSQL setup
 ```
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Blog_application
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
+## 🚀 Getting Started
 
-## Usage
-1. Start the development server:
-   ```bash
-   npm start
-   ```
-2. Open your browser and navigate to `http://localhost:3000`.
+### ✅ Prerequisites
 
-## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request.
+- Java 17+
+- Maven
+- Docker (optional, for database setup)
 
-## License
-This project is licensed under the MIT License.
+### 1. Start PostgreSQL with Docker
+
+If you don't have PostgreSQL installed locally, you can run:
+
+```bash
+docker-compose up -d
+```
+
+The database will be available on port `5432`. Credentials are defined in `application.properties`.
+
+### 2. Run the Spring Boot Application
+
+```bash
+cd blog
+./mvnw spring-boot:run
+```
+
+The application will start on `http://localhost:8080`.
+
+### 3. Test the API
+
+Use Postman, curl or similar tools. Example endpoint:
+
+```
+GET http://localhost:8080/api/posts
+```
+
+## 🧪 Running Tests
+
+To run unit tests:
+
+```bash
+./mvnw test
+```
+
+## ⚙️ Configuration
+
+Configuration can be found in:
+
+```
+src/main/resources/application.properties
+```
+
+Database connection example:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/blog
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+```
+
+## 📌 Sample API Endpoints
+
+| Method | Endpoint            | Description             |
+|--------|---------------------|-------------------------|
+| GET    | `/api/posts`        | Get all posts           |
+| GET    | `/api/posts/{id}`   | Get a single post       |
+| POST   | `/api/posts`        | Create a new post       |
+| PUT    | `/api/posts/{id}`   | Update a post           |
+| DELETE | `/api/posts/{id}`   | Delete a post           |
+
+## 👤 Author
+
+Developed by [StasiuTomkowiak](https://github.com/StasiuTomkowiak) as a backend practice project.
+
+## 📄 License
+
+MIT License
