@@ -32,10 +32,10 @@ public class SecurityConfig {
         BlogUserDetailsService blogUserDetailsService = new BlogUserDetailsService(userRepository);
 
         String email = "user@gmail.com";
-        userRepository.findByMail(email).orElseGet(() -> {
+        userRepository.findByEmail(email).orElseGet(() -> {
             User newUser = User.builder()
                 .name("test user")
-                .mail(email)
+                .email(email)
                 .password(passwordEncoder().encode("1234"))
                 .build();
             return userRepository.save(newUser);

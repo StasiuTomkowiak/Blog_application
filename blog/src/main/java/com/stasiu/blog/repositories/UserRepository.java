@@ -11,5 +11,5 @@ import com.stasiu.blog.domain.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
     
-    Optional<User> findByMail(String email);
+    Optional<User> findByEmail(String email);
 }
