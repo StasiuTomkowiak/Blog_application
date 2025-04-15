@@ -14,7 +14,7 @@ import com.stasiu.blog.services.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/api/v1/auth")
+@RequestMapping(path = "/api/v1/auth/login")
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -23,7 +23,7 @@ public class AuthController {
     @PostMapping
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest){
         UserDetails userDetails = authenticationService.authenticate(
-            loginRequest.getMail(),
+            loginRequest.getEmail(),
             loginRequest.getPassword()
         );
 

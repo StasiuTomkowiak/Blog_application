@@ -1,5 +1,7 @@
 package com.stasiu.blog.domain.dtos;
 
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,9 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class LoginRequest {
+public class TagResponse {
 
-    private String email;
-    private String password;
-
+    private UUID id;
+    private String name;
+    private Integer postCount;
+    
 }
