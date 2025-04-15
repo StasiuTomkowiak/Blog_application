@@ -92,11 +92,3 @@ spring.datasource.password=postgres
 | POST   | `/api/posts`        | Create a new post       |
 | PUT    | `/api/posts/{id}`   | Update a post           |
 | DELETE | `/api/posts/{id}`   | Delete a post           |
-
-## 👤 Author
-
-Developed by [StasiuTomkowiak](https://github.com/StasiuTomkowiak) as a backend practice project.
-
-## 📄 License
-
-MIT License
