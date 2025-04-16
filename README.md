@@ -37,7 +37,7 @@ Blog_application/
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/StasiuTomkowiak/Blog_application
 cd Blog_application/blog
 ```
 
