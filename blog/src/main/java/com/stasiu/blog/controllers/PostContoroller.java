@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stasiu.blog.domain.dtos.CategoryDto;
 import com.stasiu.blog.domain.dtos.PostDto;
 import com.stasiu.blog.domain.entities.Post;
 import com.stasiu.blog.mappers.PostMapper;
