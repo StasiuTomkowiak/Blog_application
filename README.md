@@ -69,13 +69,21 @@ Run unit tests for the backend:
 
 ## 📌 Sample API Endpoints
 
-| Method | Endpoint            | Description             |
-|--------|---------------------|-------------------------|
-| GET    | `/api/posts`        | Get all posts           |
-| GET    | `/api/posts/{id}`   | Get a single post       |
-| POST   | `/api/posts`        | Create a new post       |
-| PUT    | `/api/posts/{id}`   | Update a post           |
-| DELETE | `/api/posts/{id}`   | Delete a post           |
+| Method | Endpoint               | Description             |
+|--------|------------------------|-------------------------|
+| GET    | `/api/v1/posts`        | Get all posts           |
+| GET    | `/api/v1/posts/draft`  | Get all draft post      |
+| POST   | `/api/v1/posts`        | Create a new post       |
+| PUT    | `/api/v1/posts`        | Update a post           |
+| DELETE | `/api/v1/posts`        | Delete a post           |
+| GET    | `/api/v1/tags`         | Get all tags            |
+| DELETE | `/api/v1/tags`         | Delete all tags         | 
+| POST   | `/api/v1/tags`         | Create a new tag        |
+| GET    | `/api/v1/category`     | Get all categories      |
+| DELETE | `/api/v1/category`     | Delete all categories   | 
+| POST   | `/api/v1/category`     | Create a new category   |
+
+All endpoints can be extended with an `/id` parameter to perform operations on a specific object.
 
 ## ⚙️ Configuration
 
