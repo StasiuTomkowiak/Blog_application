@@ -10,6 +10,7 @@ import com.stasiu.blog.domain.PostStatus;
 import com.stasiu.blog.domain.entities.Category;
 import com.stasiu.blog.domain.entities.Post;
 import com.stasiu.blog.domain.entities.Tag;
+import com.stasiu.blog.domain.entities.User;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, UUID> {
@@ -30,6 +31,7 @@ public interface PostRepository extends JpaRepository<Post, UUID> {
     List<Post> findAllByStatus(
         PostStatus status
     );
+    List<Post> findAllByAuthorAndStatus(User author, PostStatus status);
 
 
 }

@@ -10,6 +10,7 @@ import com.stasiu.blog.domain.PostStatus;
 import com.stasiu.blog.domain.entities.Category;
 import com.stasiu.blog.domain.entities.Post;
 import com.stasiu.blog.domain.entities.Tag;
+import com.stasiu.blog.domain.entities.User;
 import com.stasiu.blog.repositories.PostRepository;
 import com.stasiu.blog.services.CategoryService;
 import com.stasiu.blog.services.PostService;
@@ -52,6 +53,10 @@ public class PostServiceImpl implements PostService {
             );
         }
         return postRepository.findAllByStatus(PostStatus.PUBLISHED);
+    }
+    @Override
+    public List<Post> getDraftPosts(User user) {
+        return postRepository.findAllByAuthorAndStatus(user, PostStatus.DRAFT);
     }
 
 }
