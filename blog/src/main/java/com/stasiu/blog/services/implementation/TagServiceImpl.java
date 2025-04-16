@@ -13,6 +13,7 @@ import com.stasiu.blog.domain.entities.Tag;
 import com.stasiu.blog.repositories.TagRepository;
 import com.stasiu.blog.services.TagService;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -52,6 +53,11 @@ public class TagServiceImpl implements TagService {
 
         savedTags.addAll(existingTags);
         return savedTags;
+    }
+
+    @Override
+    public Tag getTagById(UUID id) {
+        return tagRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Tag not found with id:"  + id));
     }
 
     @Transactional
