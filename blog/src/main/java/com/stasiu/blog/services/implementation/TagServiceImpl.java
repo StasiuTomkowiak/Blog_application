@@ -69,7 +69,17 @@ public class TagServiceImpl implements TagService {
             }
             tagRepository.deleteById(id);
         });
-        
     }
 
+    @Override
+    public List<Tag> getTagsByIds(Set<UUID> ids) {
+        
+        List<Tag> foundTags = tagRepository.findAllById(ids);
+
+        if(foundTags.size() != ids.size()) {
+            throw new EntityNotFoundException("Tags not found with ids:");
+        }
+        return foundTags;
+    }
+    
 }

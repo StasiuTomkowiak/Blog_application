@@ -16,14 +16,14 @@ import com.stasiu.blog.domain.entities.Post;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CategoryMapper{
 
-    @Mapping(target = "postCount", source =  "posts", qualifiedByName = "calculatePostCount")
+    @Mapping(target = "postCount", source="posts", qualifiedByName = "calculatePostCount")
     CategoryDto toDto(Category category);
 
     Category toEntity(CreateCategoryRequest createCategoryRequest);
 
     @Named("calculatePostCount")
     default long calculatePostCount(List<Post> posts) {
-        if (posts == null) {
+        if(null == posts) {
             return 0;
         }
         return posts.stream()
