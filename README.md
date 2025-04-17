@@ -6,6 +6,7 @@ This is a backend API for a blog application built with Java and Spring Boot. It
 
 - **Java 21**: Programming language
 - **Spring Boot**: Framework for backend development
+- **Spring Security**: Secure API endpoints
 - **Spring Data JPA**: For database interaction
 - **PostgreSQL**: Relational database
 - **Maven**: Dependency management and build tool
@@ -100,3 +101,52 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/blog
 spring.datasource.username=postgres
 spring.datasource.password=postgres
 ```
+
+## 🔒 Spring Security Configuration
+
+The application uses **Spring Security** to secure API endpoints and manage authentication and authorization. Below is an overview of the security setup:
+
+### 🔑 Authentication
+
+- **JWT (JSON Web Token)**: The application uses JWT for stateless authentication. A valid token must be included in the `Authorization` header for protected endpoints:
+  ```
+  Authorization: Bearer <your-token>
+  ```
+- A default user is created during application startup:
+  - **Email**: `user@gmail.com`
+  - **Password**: `1234`
+
+### 🛡️ Authorization
+
+- Public endpoints:
+  - `POST /api/v1/auth/login`
+  - `GET /api/v1/categories/**`
+  - `GET /api/v1/posts/**`
+  - `GET /api/v1/tags/**`
+- Protected endpoints (require authentication):
+  - `GET /api/v1/posts/drafts`
+  - Any other endpoints not explicitly listed as public.
+
+### 🔧 Custom Security Configuration
+
+The security configuration is defined in the `SecurityConfig` class. Key components include:
+- **JWT Authentication Filter**: Validates JWT tokens for protected endpoints.
+- **Password Encoding**: Uses `BCryptPasswordEncoder` to securely hash passwords.
+- **Stateless Sessions**: Configured to use stateless session management (`SessionCreationPolicy.STATELESS`).
+
+### 🧪 Testing Authentication
+
+To test authentication:
+1. Obtain a JWT token by sending a `POST` request to `/api/v1/auth/login` with valid credentials:
+   ```json
+   {
+     "email": "user@gmail.com",
+     "password": "1234"
+   }
+   ```
+2. Use the returned token to access protected endpoints by including it in the `Authorization` header:
+   ```
+   Authorization: Bearer <your-token>
+   ```
+
+For more details, refer to the `SecurityConfig` class in the source code.
