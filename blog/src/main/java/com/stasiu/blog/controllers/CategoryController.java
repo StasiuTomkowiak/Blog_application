@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stasiu.blog.domain.dtos.CategoryDto;
 import com.stasiu.blog.domain.dtos.CreateCategoryRequest;
+import com.stasiu.blog.domain.dtos.UpdateCategoryRequest;
+import com.stasiu.blog.domain.dtos.UpdateCategoryRequestDto;
 import com.stasiu.blog.domain.entities.Category;
 import com.stasiu.blog.mappers.CategoryMapper;
 import com.stasiu.blog.services.CategoryService;
@@ -57,5 +60,16 @@ public class CategoryController {
         categoryService.deleteCategory(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);       
     }
-    
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<CategoryDto> updateCategory(
+            @PathVariable UUID id,
+            @Valid @RequestBody UpdateCategoryRequestDto updateCategoryRequestDto) {
+
+        UpdateCategoryRequest updateCategoryRequest = categoryMapper.toUpdateCategoryRequest(updateCategoryRequestDto);
+        Category updatedCategory = categoryService.updateCategory(id, updateCategoryRequest);
+        CategoryDto updatedCategoryDto = categoryMapper.toDto(updatedCategory);
+
+        return ResponseEntity.ok(updatedCategoryDto);
+    }
 }

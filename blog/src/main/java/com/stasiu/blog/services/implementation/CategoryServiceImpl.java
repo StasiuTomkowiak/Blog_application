@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.stasiu.blog.domain.dtos.UpdateCategoryRequest;
 import com.stasiu.blog.domain.entities.Category;
 import com.stasiu.blog.repositories.CategoryRepository;
 import com.stasiu.blog.services.CategoryService;
@@ -49,6 +50,19 @@ public class CategoryServiceImpl implements CategoryService {
     public Category getCategoryById(UUID id) {
         return categoryRepository.findById(id)
         .orElseThrow(() -> new EntityNotFoundException("Category not found with id: " + id));
+    }
+
+    @Override
+    @Transactional
+    public Category updateCategory(UUID id, UpdateCategoryRequest updateCategoryRequest) {
+        Category category = categoryRepository.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Category not found with id: " + id));
+        
+        if(!category.getName().equals(updateCategoryRequest.getName())) {
+            category.setName(updateCategoryRequest.getName());
+        }
+        
+        return categoryRepository.save(category);
     }
 
     

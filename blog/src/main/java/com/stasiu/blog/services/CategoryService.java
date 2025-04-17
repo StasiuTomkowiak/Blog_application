@@ -3,6 +3,7 @@ package com.stasiu.blog.services;
 import java.util.List;
 import java.util.UUID;
 
+import com.stasiu.blog.domain.dtos.UpdateCategoryRequest;
 import com.stasiu.blog.domain.entities.Category;
 
 public interface CategoryService {
@@ -11,4 +12,6 @@ public interface CategoryService {
     Category createCategory(Category category);
     void deleteCategory(UUID id);
     Category getCategoryById(UUID id);
+    Category updateCategory(UUID id, UpdateCategoryRequest updateCategoryRequest);
+
 }
