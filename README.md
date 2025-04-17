@@ -70,19 +70,24 @@ Run unit tests for the backend:
 
 ## 📌 Sample API Endpoints
 
-| Method | Endpoint               | Description             |
-|--------|------------------------|-------------------------|
-| GET    | `/api/v1/posts`        | Get all posts           |
-| GET    | `/api/v1/posts/draft`  | Get all draft post      |
-| POST   | `/api/v1/posts`        | Create a new post       |
-| PUT    | `/api/v1/posts`        | Update a post           |
-| DELETE | `/api/v1/posts`        | Delete a post           |
-| GET    | `/api/v1/tags`         | Get all tags            |
-| DELETE | `/api/v1/tags`         | Delete all tags         | 
-| POST   | `/api/v1/tags`         | Create a new tag        |
-| GET    | `/api/v1/category`     | Get all categories      |
-| DELETE | `/api/v1/category`     | Delete all categories   | 
-| POST   | `/api/v1/category`     | Create a new category   |
+| Method | Endpoint                     | Description             |
+|--------|------------------------------|-------------------------|
+| GET    | `/api/v1/posts`              | Get all posts           |
+| GET    | `/api/v1/posts/draft`        | Get all draft post      |
+| POST   | `/api/v1/posts`              | Create a new post       |
+| PUT    | `/api/v1/posts/{id}`         | Update a post           |
+| DELETE | `/api/v1/posts/{id}`         | Delete a post           |
+| GET    | `/api/v1/tags`               | Get all tags            |
+| DELETE | `/api/v1/tags/{id}`          | Delete all tags         | 
+| POST   | `/api/v1/tags`               | Create a new tag        |
+| GET    | `/api/v1/category`           | Get all categories      |
+| DELETE | `/api/v1/category`           | Delete all categories   | 
+| POST   | `/api/v1/category`           | Create a new category   |
+| PUT    | `/api/v1/category/{id}`      | Update a category       |
+| POST   | `/api/v1/auth/login`         | Obtain a JWT token      |
+| POST   | `/api/v1/auth/signin`        | Create a new user       |
+
+
 
 All endpoints can be extended with an `/id` parameter to perform operations on a specific object.
 
@@ -120,6 +125,7 @@ The application uses **Spring Security** to secure API endpoints and manage auth
 
 - Public endpoints:
   - `POST /api/v1/auth/login`
+  - `POST /api/v1/auth/signin`
   - `GET /api/v1/categories/**`
   - `GET /api/v1/posts/**`
   - `GET /api/v1/tags/**`
