@@ -13,7 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.stasiu.blog.domain.entities.User;
 import com.stasiu.blog.repositories.UserRepository;
 import com.stasiu.blog.security.BlogUserDetailsService;
 import com.stasiu.blog.security.JwtAuthenticationFilter;
@@ -29,19 +28,7 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository){
-        BlogUserDetailsService blogUserDetailsService = new BlogUserDetailsService(userRepository);
-
-        String email = "user@gmail.com";
-        userRepository.findByEmail(email).orElseGet(() -> {
-            User newUser = User.builder()
-                .name("test user")
-                .email(email)
-                .password(passwordEncoder().encode("1234"))
-                .build();
-            return userRepository.save(newUser);
-        });
-            
-
+        BlogUserDetailsService blogUserDetailsService = new BlogUserDetailsService(userRepository);       
         return blogUserDetailsService;
     }
 
