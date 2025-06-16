@@ -1,4 +1,3 @@
-// contexts/AuthContext.js - No Modules Format
 const { useState, useEffect, createContext } = React;
 
 const AuthContext = createContext();
@@ -48,6 +47,5 @@ const AuthProvider = ({ children }) => {
     );
 };
 
-// Make globally available
 window.AuthContext = AuthContext;
 window.AuthProvider = AuthProvider;

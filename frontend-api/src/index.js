@@ -1,4 +1,3 @@
-// index.js - No Modules Format
 const { createRoot } = ReactDOM;
 
 console.log('index.js loading with Babel...');

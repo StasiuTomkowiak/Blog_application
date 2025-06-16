@@ -1,4 +1,3 @@
-// App.js - No Modules Format
 const { useState, useEffect } = React;
 
 const App = () => {

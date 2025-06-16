@@ -1,4 +1,4 @@
-// components/common/ErrorBoundary.js - No Modules Format
+
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);

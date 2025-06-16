@@ -1,4 +1,3 @@
-// views/TagsView.js - No Modules Format
 const { useState, useEffect, useContext } = React;
 
 const TagsView = () => {

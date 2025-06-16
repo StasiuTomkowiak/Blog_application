@@ -1,4 +1,3 @@
-
 const ErrorAlert = ({ error, onClose }) => {
     if (!error) return null;
     return (

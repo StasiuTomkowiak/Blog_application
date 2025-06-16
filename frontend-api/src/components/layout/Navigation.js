@@ -1,4 +1,3 @@
-// components/layout/Navigation.js - No Modules Format
 const { useState, useEffect, useContext } = React;
 
 const Navigation = () => {

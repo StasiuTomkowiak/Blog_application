@@ -1,4 +1,3 @@
-// views/DashboardView.js - No Modules Format
 const { useState, useEffect, useContext } = React;
 
 const DashboardView = () => {

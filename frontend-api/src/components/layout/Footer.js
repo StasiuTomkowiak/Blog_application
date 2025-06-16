@@ -1,4 +1,3 @@
-// components/layout/Footer.js - No Modules Format
 const Footer = () => {
     return (
         <footer className="footer">

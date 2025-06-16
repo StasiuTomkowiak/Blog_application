@@ -1,4 +1,3 @@
-// views/PostDetailView.js - No Modules Format
 const { useState, useEffect } = React;
 
 const PostDetailView = ({ postId, onBack }) => {

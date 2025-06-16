@@ -1,4 +1,3 @@
-// views/LoginView.js - No Modules Format
 const { useState, useContext } = React;
 
 const LoginView = () => {

@@ -1,4 +1,3 @@
-
 const SuccessAlert = ({ message, onClose }) => {
     if (!message) return null;
     return (

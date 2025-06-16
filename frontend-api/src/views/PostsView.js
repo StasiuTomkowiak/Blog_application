@@ -1,4 +1,3 @@
-// views/PostsView.js - No Modules Format
 const { useState, useEffect } = React;
 
 const PostsView = () => {

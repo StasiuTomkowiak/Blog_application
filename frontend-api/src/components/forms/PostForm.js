@@ -1,4 +1,3 @@
-// components/forms/PostForm.js - No Modules Format
 const PostForm = ({ post = null, onSubmit, onCancel, categories = [], tags = [] }) => (
     <div className="card p-6 mb-8 fade-in">
         <h3 className="text-xl font-semibold mb-6">{post ? 'Edit Post' : 'Create New Post'}</h3>

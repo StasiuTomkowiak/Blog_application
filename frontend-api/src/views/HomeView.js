@@ -1,4 +1,3 @@
-// views/HomeView.js - No Modules Format
 const { useState, useEffect } = React;
 
 const HomeView = () => {
