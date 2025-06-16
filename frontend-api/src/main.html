@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="icon" href="data:,">
+    
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- Load files in order - dependencies first -->
+    <script type="text/babel" src="services/ApiService.js"></script>
+    <script type="text/babel" src="components/common/Loading.js"></script>
+    <script type="text/babel" src="components/common/ErrorAlert.js"></script>
+    <script type="text/babel" src="components/common/SuccessAlert.js"></script>
+    <script type="text/babel" src="components/common/ErrorBoundary.js"></script>
+    <script type="text/babel" src="components/layout/Footer.js"></script>
+    <script type="text/babel" src="components/layout/Navigation.js"></script>
+    <script type="text/babel" src="components/forms/PostForm.js"></script>
+    <script type="text/babel" src="views/HomeView.js"></script>
+    <script type="text/babel" src="views/PostsView.js"></script>
+    <script type="text/babel" src="views/PostDetailView.js"></script>
+    <script type="text/babel" src="views/CategoriesView.js"></script>
+    <script type="text/babel" src="views/TagsView.js"></script>
+    <script type="text/babel" src="views/DashboardView.js"></script>
+    <script type="text/babel" src="views/LoginView.js"></script>
+    <script type="text/babel" src="contexts/AuthContext.js"></script>
+    <script type="text/babel" src="App.js"></script>
+    <script type="text/babel" src="index.js"></script>
+</body>
+</html>
