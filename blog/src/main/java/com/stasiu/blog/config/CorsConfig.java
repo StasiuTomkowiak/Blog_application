@@ -15,20 +15,15 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        
-        // Pozwól na wszystkie pochodzenia (dla developmentu)
+
         configuration.setAllowedOriginPatterns(Arrays.asList("*"));
-        
-        // Pozwól na wszystkie metody HTTP
+
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        
-        // Pozwól na wszystkie nagłówki
+
         configuration.setAllowedHeaders(Arrays.asList("*"));
-        
-        // Pozwól na credentials
+
         configuration.setAllowCredentials(true);
-        
-        // Zarejestruj konfigurację dla wszystkich ścieżek
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         
