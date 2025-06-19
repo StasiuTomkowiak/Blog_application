@@ -31,5 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+volumes/file
+volumes/logs
 
 .env
